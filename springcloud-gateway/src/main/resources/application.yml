@@ -1,0 +1,15 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: springcloud-gateway
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      register-with-eureka: true
+      fetch-registry: true
+      defaultZone: http://10.2.11.3:8761/eureka, http://10.2.11.3:8762/eureka, http://10.2.11.3:8763/eureka

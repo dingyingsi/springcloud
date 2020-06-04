@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加单词</title>
+    <link rel="stylesheet" href="../css/main.css"/>
+</head>
+<body>
+<form th:action="@{/word/add}" method="post">
+    <div>
+        <label>单词名称</label>
+        <input type="text" name="wordName" />
+    </div>
+    <div>
+        <label>单词音标</label>
+        <input type="text" name="wordPhoneticSign" />
+    </div>
+    <div>
+        <label>单词意思</label>
+        <input type="text" name="wordMeaning" />
+    </div>
+    <div>
+        <label>单词例句</label>
+        <textarea rows="10" name="wordExample" ></textarea>
+    </div>
+    <div>
+        <input type="submit" value="提交" />
+    </div>
+</form>
+</body>
+</html>

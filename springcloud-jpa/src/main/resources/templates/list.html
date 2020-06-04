@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>单词列表</title>
+    <link rel="stylesheet" href="../css/main.css"/>
+</head>
+<body>
+<br/>
+<br/>
+<a th:href="@{/word/add}">新增单词</a>
+<br/>
+<br/>
+<table id="table-4">
+    <thead>
+    <th width="5%">编号</th>
+    <th width="8%">名称</th>
+    <th width="15%">音标</th>
+    <th width="20%">意思</th>
+    <th width="45%">例句</th>
+    <th width="8%">操作</th>
+    </thead>
+    <tbody>
+    <tr th:each="word : ${words}">
+        <td th:text="${word.id}"></td>
+        <td th:text="${word.wordName}"></td>
+        <td th:text="${word.wordPhoneticSign}"></td>
+        <td th:text="${word.wordMeaning}"></td>
+        <td th:text="${word.wordExample}"></td>
+        <td>
+            <a th:href="@{/word/edit(id=${word.id})}">编辑</a> &nbsp;&nbsp;
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

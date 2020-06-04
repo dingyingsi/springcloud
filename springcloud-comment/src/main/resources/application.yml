@@ -1,0 +1,35 @@
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      register-with-eureka: true
+      fetch-registry: true
+      defaultZone: http://192.168.31.43:8761/eureka, http://192.168.31.44:8761/eureka, http://192.168.31.45:8761/eureka
+
+spring:
+  application:
+    name: springcloud-comment
+  profiles:
+    active: springcloud-comment-2300
+server:
+  servlet:
+    context-path: /comment
+---
+server:
+  port: 2300
+spring:
+  profiles: springcloud-comment-2300
+
+---
+server:
+  port: 2301
+spring:
+  profiles: springcloud-comment-2301
+
+---
+server:
+  port: 2302
+spring:
+  profiles: springcloud-comment-2302

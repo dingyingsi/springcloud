@@ -1,0 +1,35 @@
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      register-with-eureka: true
+      fetch-registry: true
+      defaultZone: http://10.2.11.3:8761/eureka, http://10.2.11.3:8762/eureka, http://10.2.11.3:8763/eureka
+
+spring:
+  application:
+    name: springcloud-product
+  profiles:
+    active: springcloud-product-2200
+server:
+  servlet:
+    context-path: /product
+---
+server:
+  port: 2200
+spring:
+  profiles: springcloud-product-2200
+
+---
+server:
+  port: 2201
+spring:
+  profiles: springcloud-product-2201
+
+---
+server:
+  port: 2202
+spring:
+  profiles: springcloud-product-2202

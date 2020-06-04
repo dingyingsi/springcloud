@@ -1,0 +1,8 @@
+
+version '0.0.1-SNAPSHOT'
+
+dependencies {
+    compileOnly 'org.springframework.cloud:spring-cloud-starter-openfeign'
+    compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
+    compileOnly 'org.projectlombok:lombok:1.18.8'
+}

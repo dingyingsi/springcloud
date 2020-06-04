@@ -1,0 +1,35 @@
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      register-with-eureka: true
+      fetch-registry: true
+      defaultZone: http://10.2.11.3:8761/eureka, http://10.2.11.3:8762/eureka, http://10.2.11.3:8763/eureka
+
+spring:
+  application:
+    name: springcloud-order
+  profiles:
+    active: springcloud-order-2100
+server:
+  servlet:
+    context-path: /order
+---
+server:
+  port: 2100
+spring:
+  profiles: springcloud-order-2100
+
+---
+server:
+  port: 2101
+spring:
+  profiles: springcloud-order-2101
+
+---
+server:
+  port: 2102
+spring:
+  profiles: springcloud-order-2102

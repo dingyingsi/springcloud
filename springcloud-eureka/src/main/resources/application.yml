@@ -1,0 +1,59 @@
+spring:
+  application:
+    name: springcloud-eureka
+  profiles:
+    active: node43
+
+---
+server:
+  port: 8761
+
+spring:
+  profiles: node43
+
+eureka:
+  instance:
+    hostname: 192.168.31.43
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${eureka.instance.hostname}:${server.port}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://192.168.31.44:8761/eureka/, http://192.168.31.45:8761/eureka/
+
+---
+server:
+  port: 8761
+
+spring:
+  profiles: node44
+
+eureka:
+  instance:
+    hostname: 192.168.31.44
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${eureka.instance.hostname}:${server.port}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://192.168.31.43:8761/eureka/, http://192.168.31.45:8761/eureka/
+
+---
+server:
+  port: 8761
+
+spring:
+  profiles: node45
+
+eureka:
+  instance:
+    hostname: 192.168.31.45
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${eureka.instance.hostname}:${server.port}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://192.168.31.43:8761/eureka/, http://192.168.31.44:8761/eureka/

@@ -1,0 +1,39 @@
+ext {
+    nexus = System.getProperty('nexus.url')
+}
+
+gradle.settingsEvaluated {
+    settings ->
+        settings.pluginManagement {
+            resolutionStrategy {
+            }
+            repositories {
+                mavenLocal()
+                maven {
+                    url  "${nexus}/repository/maven-public/"
+                    credentials {
+                        username 'admin'
+                        password 'Dingyingsi1988!'
+                    }
+                    allowInsecureProtocol true
+                    println "settingsEvaluated repository url: " + url
+                }
+            }
+        }
+}
+
+rootProject.name = 'springcloud'
+include 'springcloud-comment'
+include 'springcloud-comment-api'
+include 'springcloud-product'
+include 'springcloud-product-api'
+include 'springcloud-user'
+include 'springcloud-eureka'
+include 'springcloud-order'
+include 'springcloud-order-api'
+include 'springcloud-gateway'
+include 'springcloud-jpa'
+include 'springcloud-test'
+include 'datasource-spring-boot-starter'
+include 'datasource-spring-boot-autoconfigure'
+
