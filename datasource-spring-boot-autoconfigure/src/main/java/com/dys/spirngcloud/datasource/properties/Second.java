@@ -15,8 +15,17 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
      private Boolean removeAbandonedOnMaintenance;
      private Boolean removeAbandonedOnBorrow;
      private Boolean jdbcCompliantTruncation;
+    private Boolean enabled;
 
-   public String getUrl() {
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public String getUrl() {
       return url;
    }
 

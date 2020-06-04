@@ -15,6 +15,7 @@ public class Fifth {
   private Boolean removeAbandonedOnMaintenance;
   private Boolean removeAbandonedOnBorrow;
   private Boolean jdbcCompliantTruncation;
+  private Boolean enabled;
 
   public String getUrl() {
     return url;
@@ -30,6 +31,14 @@ public class Fifth {
 
   public void setUsername(String username) {
     this.username = username;
+  }
+
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public String getPassword() {

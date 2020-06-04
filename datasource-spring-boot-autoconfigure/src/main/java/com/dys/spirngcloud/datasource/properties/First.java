@@ -15,9 +15,18 @@ public class First {
   private Boolean removeAbandonedOnMaintenance;
   private Boolean removeAbandonedOnBorrow;
   private Boolean jdbcCompliantTruncation;
+  private Boolean enabled;
 
   public String getUrl() {
     return url;
+  }
+
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public void setUrl(String url) {

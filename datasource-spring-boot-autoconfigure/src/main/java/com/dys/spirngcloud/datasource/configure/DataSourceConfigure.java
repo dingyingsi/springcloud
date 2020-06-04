@@ -3,6 +3,7 @@ package com.dys.spirngcloud.datasource.configure;
 import com.dys.spirngcloud.datasource.properties.*;
 import com.dys.spirngcloud.datasource.service.DataSourceService;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,26 +32,31 @@ public class DataSourceConfigure {
   private Fifth fifth;
   
   @Bean
+  @ConditionalOnProperty(name = "spring.datasource.first.enabled", havingValue = "true")
   public DataSource firstDataSource() {
      return new DataSourceService().firstDataSource(first);
   }
   
   @Bean
+  @ConditionalOnProperty(name = "spring.datasource.second.enabled", havingValue = "true")
   public DataSource secondDataSource() {
      return new DataSourceService().secondDataSource(second);
   }
 
   @Bean
+  @ConditionalOnProperty(name = "spring.datasource.third.enabled", havingValue = "true")
   public DataSource thirdDataSource() {
     return new DataSourceService().thirdDataSource(third);
   }
 
   @Bean
+  @ConditionalOnProperty(name = "spring.datasource.fourth.enabled", havingValue = "true")
   public DataSource fourthDataSource() {
     return new DataSourceService().fourthDataSource(fourth);
   }
 
   @Bean
+  @ConditionalOnProperty(name = "spring.datasource.fifth.enabled", havingValue = "true")
   public DataSource fifthDataSource() {
     return new DataSourceService().fifthDataSource(fifth);
   }

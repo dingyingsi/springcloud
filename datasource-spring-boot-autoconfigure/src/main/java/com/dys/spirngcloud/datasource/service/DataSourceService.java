@@ -34,11 +34,13 @@ public class DataSourceService {
    }
 
     public DataSource firstDataSource(First first) {
+
         return getDataSource(first.getUrl(), first.getUsername(), first.getPassword(), first.getInitialSize(), first.getMaxTotal(), first.getMaxIdle(), first.getMinIdle(), first.getMaxWaitMillis(), first.getRemoveAbandonedOnMaintenance(), first.getRemoveAbandonedOnBorrow(), first.getJdbcCompliantTruncation());
     }
 
-   public DataSource secondDataSource(Second secondary) {
-      return getDataSource(secondary.getUrl(), secondary.getUsername(), secondary.getPassword(), secondary.getInitialSize(), secondary.getMaxTotal(), secondary.getMaxIdle(), secondary.getMinIdle(), secondary.getMaxWaitMillis(), secondary.getRemoveAbandonedOnMaintenance(), secondary.getRemoveAbandonedOnBorrow(), secondary.getJdbcCompliantTruncation());
+   public DataSource secondDataSource(Second second) {
+
+      return getDataSource(second.getUrl(), second.getUsername(), second.getPassword(), second.getInitialSize(), second.getMaxTotal(), second.getMaxIdle(), second.getMinIdle(), second.getMaxWaitMillis(), second.getRemoveAbandonedOnMaintenance(), second.getRemoveAbandonedOnBorrow(), second.getJdbcCompliantTruncation());
    }
 
    public DataSource thirdDataSource(Third third) {
@@ -46,10 +48,12 @@ public class DataSourceService {
    }
 
    public DataSource fourthDataSource(Fourth fourth) {
+
       return getDataSource(fourth.getUrl(), fourth.getUsername(), fourth.getPassword(), fourth.getInitialSize(), fourth.getMaxTotal(), fourth.getMaxIdle(), fourth.getMinIdle(), fourth.getMaxWaitMillis(), fourth.getRemoveAbandonedOnMaintenance(), fourth.getRemoveAbandonedOnBorrow(), fourth.getJdbcCompliantTruncation());
    }
 
    public DataSource fifthDataSource(Fifth fifth) {
+
       return getDataSource(fifth.getUrl(), fifth.getUsername(), fifth.getPassword(), fifth.getInitialSize(), fifth.getMaxTotal(), fifth.getMaxIdle(), fifth.getMinIdle(), fifth.getMaxWaitMillis(), fifth.getRemoveAbandonedOnMaintenance(), fifth.getRemoveAbandonedOnBorrow(), fifth.getJdbcCompliantTruncation());
    }
 }
