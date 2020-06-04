@@ -16,6 +16,16 @@ public class Third {
     private Boolean removeAbandonedOnBorrow;
     private Boolean jdbcCompliantTruncation;
     private Boolean enabled;
+    private String label;
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
     public String getUrl() {
         return url;
     }

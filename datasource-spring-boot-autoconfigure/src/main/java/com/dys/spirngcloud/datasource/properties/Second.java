@@ -16,9 +16,18 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
      private Boolean removeAbandonedOnBorrow;
      private Boolean jdbcCompliantTruncation;
     private Boolean enabled;
+    private String label;
 
     public Boolean getEnabled() {
         return enabled;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     public void setEnabled(Boolean enabled) {

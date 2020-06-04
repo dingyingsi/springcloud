@@ -16,6 +16,7 @@ public class Fifth {
   private Boolean removeAbandonedOnBorrow;
   private Boolean jdbcCompliantTruncation;
   private Boolean enabled;
+  private String label;
 
   public String getUrl() {
     return url;
@@ -35,6 +36,14 @@ public class Fifth {
 
   public Boolean getEnabled() {
     return enabled;
+  }
+
+  public String getLabel() {
+    return label;
+  }
+
+  public void setLabel(String label) {
+    this.label = label;
   }
 
   public void setEnabled(Boolean enabled) {
