@@ -154,6 +154,8 @@ project.subprojects {
                     username 'admin'
                     password 'Dingyingsi1988!'
                 }
+                allowInsecureProtocol true
+
                 if (project.version.endsWith('-SNAPSHOT')) {
                     url "${nexus}/repository/maven-snapshots/"
                 } else {
