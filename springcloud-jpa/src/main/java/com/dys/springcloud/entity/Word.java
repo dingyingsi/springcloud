@@ -10,7 +10,6 @@ import java.util.Date;
 /**
  * @Description  
  * @author dingyingsi
- * @Date 2020-05-06 
  */
 
 @DynamicInsert
