@@ -1,0 +1,5 @@
+
+
+dependencies {
+    implementation('com.dys:redisson-spring-boot-autoconfigure:0.0.1-SNAPSHOT')
+}

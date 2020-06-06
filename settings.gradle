@@ -36,4 +36,6 @@ include 'springcloud-jpa'
 include 'springcloud-test'
 include 'datasource-spring-boot-starter'
 include 'datasource-spring-boot-autoconfigure'
+include 'redisson-spring-boot-autoconfigurer'
+include 'redisson-spring-boot-starter'
 
