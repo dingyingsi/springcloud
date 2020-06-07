@@ -38,4 +38,7 @@ include 'datasource-spring-boot-starter'
 include 'datasource-spring-boot-autoconfigure'
 include 'redisson-spring-boot-autoconfigurer'
 include 'redisson-spring-boot-starter'
+include 'springcloud-rocketmq'
+include 'springcloud-activemq'
+include 'springcloud-elasticsearch'
 
