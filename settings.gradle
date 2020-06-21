@@ -40,5 +40,6 @@ include 'redisson-spring-boot-autoconfigurer'
 include 'redisson-spring-boot-starter'
 include 'springcloud-rocketmq'
 include 'springcloud-activemq'
+include 'springcloud-kafka'
 include 'springcloud-elasticsearch'
 
