@@ -16,7 +16,7 @@ gradle.settingsEvaluated {
                         password 'Dingyingsi1988!'
                     }
                     allowInsecureProtocol true
-                    println "settingsEvaluated repository url: " + url
+                    // println "settingsEvaluated repository url: " + url
                 }
             }
         }
@@ -33,6 +33,7 @@ include 'springcloud-order'
 include 'springcloud-order-api'
 include 'springcloud-gateway'
 include 'springcloud-jpa'
+include 'springcloud-kafka'
 include 'springcloud-test'
 include 'datasource-spring-boot-starter'
 include 'datasource-spring-boot-autoconfigure'
@@ -42,5 +43,5 @@ include 'springcloud-rocketmq'
 include 'springcloud-activemq'
 include 'springcloud-kafka'
 include 'springcloud-elasticsearch'
-include 'springsecurity'
+include 'scala'
 
