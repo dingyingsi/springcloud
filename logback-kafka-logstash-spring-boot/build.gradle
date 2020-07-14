@@ -1,0 +1,12 @@
+plugins {
+    id 'groovy'
+    id 'java'
+}
+
+version '0.0.1-SNAPSHOT'
+
+dependencies {
+    implementation 'org.codehaus.groovy:groovy-all:2.3.11'
+    implementation 'net.logstash.logback:logstash-logback-encoder6.3'
+    implementation 'com.github.danielwegener:logback-kafka-appender0.2.0-RC2'
+}

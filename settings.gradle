@@ -44,4 +44,6 @@ include 'springcloud-activemq'
 include 'springcloud-kafka'
 include 'springcloud-elasticsearch'
 include 'springsecurity'
+include 'spring-cache'
+include 'logback-kafka-logstash-spring-boot'
 
