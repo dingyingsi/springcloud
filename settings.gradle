@@ -43,4 +43,6 @@ include 'springcloud-rocketmq'
 include 'springcloud-activemq'
 include 'springcloud-kafka'
 include 'springcloud-elasticsearch'
+include 'springsecurity'
+include 'scala'
 
