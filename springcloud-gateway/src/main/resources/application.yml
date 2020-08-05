@@ -5,6 +5,15 @@ spring:
   application:
     name: springcloud-gateway
 
+  cloud:
+    gateway:
+      routes:
+        - id: baidu_route
+          uri: http://baidu.com:80/
+          predicates:
+            - Path=/baidu
+
+
 eureka:
   instance:
     prefer-ip-address: true
@@ -13,3 +22,10 @@ eureka:
       register-with-eureka: true
       fetch-registry: true
       defaultZone: http://10.2.11.3:8761/eureka, http://10.2.11.3:8762/eureka, http://10.2.11.3:8763/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  security:
+    enabled: false
