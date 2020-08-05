@@ -1,5 +1,6 @@
 package com.dys.springcloud.entity;
 
+import lombok.Data;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -16,6 +17,7 @@ import java.util.Date;
 @DynamicUpdate
 @Entity
 @Table ( name ="word" )
+@Data
 public class Word implements Serializable {
 	private static final long serialVersionUID =  593274901001305026L;
 
