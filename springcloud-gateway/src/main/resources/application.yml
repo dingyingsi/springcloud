@@ -1,17 +1,16 @@
-server:
-  port: 9527
 
 spring:
   application:
     name: springcloud-gateway
+  profiles:
+    active: springcloud-gateway-1900
 
   cloud:
     gateway:
-      routes:
-        - id: baidu_route
-          uri: http://baidu.com:80/
-          predicates:
-            - Path=/baidu
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
 
 
 eureka:
@@ -29,3 +28,21 @@ management:
         include: '*'
   security:
     enabled: false
+
+---
+server:
+  port: 1900
+spring:
+  profiles: springcloud-gateway-1900
+
+---
+server:
+  port: 1901
+spring:
+  profiles: springcloud-gateway-1901
+
+---
+server:
+  port: 1902
+spring:
+  profiles: springcloud-gateway-1902
