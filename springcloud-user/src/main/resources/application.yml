@@ -1,4 +1,5 @@
 
+
 eureka:
   instance:
     prefer-ip-address: true
@@ -16,6 +17,10 @@ spring:
 server:
   servlet:
     context-path: /user
+feign:
+  hystrix:
+    enabled: true
+
 ---
 server:
   port: 2000

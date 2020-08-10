@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Map;
 
-@FeignClient(name = "springcloud-comment", qualifier = "commentService", path = "/comment/comment")
+@FeignClient(name = "springcloud-comment", qualifier = "commentService", path = "/comment/comment", fallback = CommentServiceFallback.class)
 public interface CommentService {
 
     @RequestMapping(value = "/comment")

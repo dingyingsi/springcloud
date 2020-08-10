@@ -40,6 +40,7 @@ public class GatewayApplication {
                         .order(0)
                         .id("custom_gateway_filter")
                 )
+
                 .build();
     }
 }
