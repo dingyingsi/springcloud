@@ -46,4 +46,6 @@ include 'springcloud-elasticsearch'
 include 'springsecurity'
 include 'spring-cache'
 include 'logback-kafka-logstash-spring-boot'
+include 'springcloud-hystrix-dashboard'
+include 'springcloud-turbine'
 
