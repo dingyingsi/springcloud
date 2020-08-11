@@ -16,7 +16,7 @@ group = 'com.dys'
 version = '0.0.1-SNAPSHOT'
 
 ext {
-    set('springCloudVersion', "Hoxton.SR4")
+    set('springCloudVersion', "Hoxton.SR7")
     nexus = System.getProperty('nexus.url')
 }
 
