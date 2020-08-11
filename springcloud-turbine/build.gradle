@@ -1,0 +1,17 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.2.RELEASE'
+}
+
+group 'com.dys'
+version '0.0.1-SNAPSHOT'
+
+dependencies {
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix-dashboard'
+    implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix'
+    implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-turbine'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
+
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+}

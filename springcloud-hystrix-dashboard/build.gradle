@@ -1,0 +1,12 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.2.RELEASE'
+}
+
+group 'com.dys'
+version '0.0.1-SNAPSHOT'
+
+dependencies {
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+    implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix-dashboard'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+}
