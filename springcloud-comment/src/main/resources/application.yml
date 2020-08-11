@@ -27,7 +27,10 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info,hystrix.stream
+        include: '*'
+  server:
+    servlet:
+      context-path: /comment
 
 hystrix:
   command:

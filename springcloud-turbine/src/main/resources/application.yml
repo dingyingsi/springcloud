@@ -1,0 +1,32 @@
+server:
+  port: 9088
+spring:
+  application:
+    name: springcloud-turbine
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      register-with-eureka: true
+      fetch-registry: true
+      defaultZone: http://10.2.11.3:8761/eureka, http://10.2.11.3:8762/eureka, http://10.2.11.3:8763/eureka
+
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+turbine:
+  aggregator:
+    cluster-config: SPRINGCLOUD-COMMENT,SPRINGCLOUD-PRODUCT,SPRINGCLOUD-ORDER,SPRINGCLOUD-USER
+  appConfig: springcloud-comment,springcloud-product,springcloud-order,springcloud-user
+  instanceUrlSuffix:
+    SPRINGCLOUD-COMMENT: comment/actuator/hystrix.stream
+    SPRINGCLOUD-PRODUCT: product/actuator/hystrix.stream
+    SPRINGCLOUD-ORDER: order/actuator/hystrix.stream
+    SPRINGCLOUD-USER: user/actuator/hystrix.stream
+  combine-host-port: true

@@ -17,16 +17,31 @@ spring:
 server:
   servlet:
     context-path: /user
+
+
 feign:
   hystrix:
     enabled: true
+
 management:
   security:
     enabled: false
   endpoints:
     web:
       exposure:
-        include: health,info,hystrix.stream
+        include: '*'
+  server:
+    servlet:
+      context-path: /user
+
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 15000
 
 ---
 server:

@@ -16,6 +16,32 @@ spring:
 server:
   servlet:
     context-path: /order
+
+
+feign:
+  hystrix:
+    enabled: true
+
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  server:
+    servlet:
+      context-path: /order
+
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 15000
+
 ---
 server:
   port: 2100
