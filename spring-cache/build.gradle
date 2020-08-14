@@ -6,7 +6,7 @@ plugins {
 version '0.0.1-SNAPSHOT'
 
 dependencies {
-    implementation 'org.codehaus.groovy:groovy-all:2.3.11'
+    implementation 'org.codehaus.groovy:groovy-all:3.0.5'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
     //developmentOnly 'org.springframework.boot:spring-boot-devtools'
