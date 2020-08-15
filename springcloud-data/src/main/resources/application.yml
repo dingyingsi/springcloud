@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://10.2.11.3:3306/word?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    username: root
+    password: Xl123456
+  jpa:
+    format_sql: false
+    show-sql: false
+    database-platform: mysql
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  thymeleaf:
+    cache: false
+    mode: HTML5
+    encoding: UTF-8
+server:
+  servlet:
+    context-path: /jpa

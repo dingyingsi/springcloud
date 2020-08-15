@@ -45,4 +45,5 @@ include 'springcloud-turbine'
 include 'springcloud-bus'
 include 'springcloud-data'
 include 'springcloud-data'
+include 'springcloud-data'
 
