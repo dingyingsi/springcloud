@@ -19,4 +19,4 @@ spring:
     encoding: UTF-8
 server:
   servlet:
-    context-path: /jpa
+    context-path: /word

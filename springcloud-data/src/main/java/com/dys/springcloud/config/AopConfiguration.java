@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @Configuration
-@ComponentScan(basePackages = "com.dys")
+@ComponentScan(basePackages = "com.dys.springcloud")
 @EnableAspectJAutoProxy
 public class AopConfiguration {
 
