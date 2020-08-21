@@ -2,23 +2,30 @@ package com.dys.springcloud.aop;
 
 import com.dys.springcloud.annotation.OperationLog;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import javassist.*;
+import javassist.bytecode.CodeAttribute;
+import javassist.bytecode.LocalVariableAttribute;
+import javassist.bytecode.MethodInfo;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.expression.EvaluationContext;
+import org.springframework.expression.ExpressionParser;
+import org.springframework.expression.common.TemplateParserContext;
+import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.expression.spel.support.StandardEvaluationContext;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.util.HashMap;
+import java.util.Map;
 
 @Aspect
 public class LogAspects {
+
+    private ExpressionParser expressionParser = new SpelExpressionParser();
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
@@ -33,7 +40,7 @@ public class LogAspects {
     }
 
     @AfterReturning(value = "pointCut()", returning = "object")
-    public void logReturn(JoinPoint joinPoint, Object object) {
+    public void logReturn(JoinPoint joinPoint, Object object) throws Exception {
         HttpServletRequest httpRequest = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 
         String contextPath = httpRequest.getContextPath();
@@ -49,39 +56,14 @@ public class LogAspects {
         OperationLog operationLog = method.getAnnotation(OperationLog.class);
         String description = operationLog.value();
 
-        Object[] args = joinPoint.getArgs();
+        Map<String, Object> nameAndArgs = this.getArgNameAndValue(this.getClass(), className, methodName, joinPoint.getArgs());
 
-        Annotation[][] parameterAnnotations = method.getParameterAnnotations();
-        if (parameterAnnotations == null || parameterAnnotations.length == 0 || (parameterAnnotations.length == 1 && parameterAnnotations[0].length == 0)) {
-            // 参数上无注解情况
-            System.out.println("请求参数无注解，不处理");
-        } else {
+        StandardEvaluationContext standardEvaluationContext = new StandardEvaluationContext();
+        standardEvaluationContext.setVariables(nameAndArgs);
 
-            EvaluationContext ctx = new StandardEvaluationContext();
-            for (Annotation[] parameterAnnotation : parameterAnnotations) {
-                for (Annotation annotation : parameterAnnotation) {
-                    if (annotation instanceof RequestBody) {
-                        RequestBody RequestBody = (RequestBody) annotation;
+        SpelExpressionParser spelExpressionParser = new SpelExpressionParser();
 
-                    } else if (annotation instanceof RequestParam) {
-                        RequestParam requestParam = (RequestParam)annotation;
-                        String name = requestParam.name();
-                        name = name == null ? requestParam.value() : "";
-
-                        Object param = args[0];
-                        if (param instanceof String || param instanceof Number) {
-                            ctx.setVariable(name, param);
-                        } else {
-
-                        }
-
-                    } else if (annotation instanceof PathVariable) {
-                        PathVariable pathVariable = (PathVariable)annotation;
-                        String value = pathVariable.value();
-                    }
-                }
-            }
-        }
+        System.out.println(spelExpressionParser.parseExpression(description, new TemplateParserContext()).getValue(standardEvaluationContext));
 
     }
 
@@ -93,5 +75,27 @@ public class LogAspects {
     @After(value = "pointCut()")
     public void logEnd(JoinPoint joinPoint) {
         System.out.println("divide end");
+    }
+
+
+
+    private Map<String,Object> getArgNameAndValue(Class cls, String clazzName, String methodName, Object[] args) throws NotFoundException {
+        Map<String,Object > map=new HashMap<>();
+        ClassPool pool = ClassPool.getDefault();
+        ClassClassPath classPath = new ClassClassPath(cls);
+        pool.insertClassPath(classPath);
+        CtClass cc = pool.get(clazzName);
+        CtMethod cm = cc.getDeclaredMethod(methodName);
+        MethodInfo methodInfo = cm.getMethodInfo();
+        CodeAttribute codeAttribute = methodInfo.getCodeAttribute();
+        LocalVariableAttribute attr = (LocalVariableAttribute) codeAttribute.getAttribute(LocalVariableAttribute.tag);
+        if (attr == null) {
+            return map;
+        }
+        int pos = Modifier.isStatic(cm.getModifiers()) ? 0 : 1;
+        for (int i = 0; i < cm.getParameterTypes().length; i++){
+            map.put( attr.variableName(i + pos),args[i]);
+        }
+        return map;
     }
 }

@@ -29,7 +29,7 @@ public class LogController {
 
     @RequestMapping(value = {"/logPostJson"})
     @ResponseBody
-    @OperationLog(value = "保存单词信息#{#word}")
+    @OperationLog(value = "保存单词信息#{#word.getWordName()}, #{#word.getId()}")
     public Word logPostJson(@RequestBody Word word) {
         System.out.println(word);
         return word;
@@ -37,7 +37,7 @@ public class LogController {
 
     @RequestMapping(value = {"/logPostForm"})
     @ResponseBody
-    @OperationLog(value = "保存单词信息#{#word}")
+    @OperationLog(value = "保存单词信息#{#id}, #{#wordName}")
     public Word logPostForm(Word word) {
         System.out.println(word);
         return word;
@@ -46,7 +46,7 @@ public class LogController {
     @RequestMapping(value = {"/logPostString"})
     @ResponseBody
     @OperationLog(value = "保存单词信息#{#word}}")
-    public Word logPostString(String word) throws Exception {
+    public Word logPostString(@RequestParam(name = "word") String word) throws Exception {
 
         int a = 10;
         int b = 0;
@@ -68,6 +68,17 @@ public class LogController {
         Word word = new Word();
         word.setId(id);
         word.setWordName("good");
+        return word;
+    }
+
+    @RequestMapping(value = {"/logPost"})
+    @ResponseBody
+    @OperationLog(value = "保存单词信息#{#wordName}, #{#id}")
+    public Word logPost(@RequestParam(name = "wordName") String wordName, @RequestParam(name = "id") Long id, HttpServletRequest httpServletRequest) throws Exception {
+
+        Word word = new Word();
+        word.setId(id);
+        word.setWordName(wordName);
         return word;
     }
 }
