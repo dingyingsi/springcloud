@@ -1,0 +1,4 @@
+
+dependencies {
+    implementation 'com.liubike:framework-kafka-spring-boot-autoconfigure:0.0.1-SNAPSHOT'
+}
