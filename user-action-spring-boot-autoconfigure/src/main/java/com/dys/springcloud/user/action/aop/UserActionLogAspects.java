@@ -1,15 +1,14 @@
 package com.dys.springcloud.user.action.aop;
 
 import com.dys.springcloud.user.action.annotation.UserActionLog;
+import com.dys.springcloud.user.action.dto.UserActionDto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.liubike.framework.sso.client.security.SecurityContextHolderUtils;
-import com.liubike.framework.user.action.common.dto.UserActionDto;
 import javassist.NotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.LocalVariableTableParameterNameDiscoverer;
 import org.springframework.expression.common.TemplateParserContext;
@@ -49,7 +48,7 @@ public class UserActionLogAspects {
         objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
     }
 
-    @Pointcut(value = "@annotation(com.liubike.framework.operation.log.annotation.UserActionLog)")
+    @Pointcut(value = "@annotation(com.dys.springcloud.user.action.annotation.UserActionLog)")
     public void pointCut() {
     }
 
@@ -130,11 +129,11 @@ public class UserActionLogAspects {
         String action = spelExpressionParser.parseExpression(actionExpression, new TemplateParserContext()).getValue(standardEvaluationContext).toString();
 
         UserActionDto userActionDto = new UserActionDto();
-        userActionDto.setUserId(SecurityContextHolderUtils.getUserId());
-        userActionDto.setMobilePhone(sysUserDto.getMobilePhone());
-        userActionDto.setUsername(SecurityContextHolderUtils.getUsername());
-        userActionDto.setRealName(SecurityContextHolderUtils.getRealName());
-        userActionDto.setClientId(SecurityContextHolderUtils.getClientId());
+        userActionDto.setUserId(null);
+        userActionDto.setMobilePhone(null);
+        userActionDto.setUsername(null);
+        userActionDto.setRealName(null);
+        userActionDto.setClientId(null);
         userActionDto.setIp(ip);
         userActionDto.setHttpMethod(httpMethod);
         userActionDto.setContentType(contentType);

@@ -1,4 +1,4 @@
 
 dependencies {
-    testImplementation group: 'junit', name: 'junit', version: '4.12'
+    implementation 'com.dys:kafka-spring-boot-autoconfigure:0.0.1-SNAPSHOT'
 }
