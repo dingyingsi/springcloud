@@ -1,4 +1,4 @@
 
 dependencies {
-    implementation 'com.dys:kafka-spring-boot-autoconfigure:0.0.1-SNAPSHOT'
+    implementation group: 'com.dys', name: 'kafka-spring-boot-autoconfigure', version: '0.0.1-SNAPSHOT'
 }

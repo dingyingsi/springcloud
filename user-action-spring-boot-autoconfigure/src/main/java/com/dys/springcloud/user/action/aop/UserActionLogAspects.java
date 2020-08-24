@@ -36,8 +36,10 @@ import java.util.stream.Collectors;
 public class UserActionLogAspects {
 
     private ObjectMapper objectMapper = null;
+
     @Resource
     private KafkaTemplate<String, String> frameworkKafkaTemplate;
+
     @Value("${framework.user.action.kafka.producer.topic}")
     private String frameworkUserActionKafkaProducerTopic;
 
