@@ -11,7 +11,6 @@ import java.lang.annotation.*;
 public @interface UserActionLog {
 
     /**
-     * 这个注解中可以使用内置登录用户变量loginUser.getUserName(); loginUser的类型为 {@link com.liubike.framework.user.api.dto.SysUserDto}
      * 例如: "【#{#loginUser.getUserName()}】用户操作了数据
      * @return
      */
