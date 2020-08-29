@@ -1,4 +1,4 @@
 
 dependencies {
-    implementation 'com.liubike:framework-user-action-spring-boot-autoconfigure:0.0.8-SNAPSHOT'
+    implementation 'com.dys:user-action-spring-boot-autoconfigure:0.0.1-SNAPSHOT'
 }
