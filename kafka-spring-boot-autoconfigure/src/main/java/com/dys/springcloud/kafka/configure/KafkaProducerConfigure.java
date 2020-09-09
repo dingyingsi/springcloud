@@ -1,4 +1,4 @@
-package com.dys.springcloud.kafka.produer;
+package com.dys.springcloud.kafka.configure;
 
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;

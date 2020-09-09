@@ -1,4 +1,4 @@
-package com.dys.springcloud.redisson.config;
+package com.dys.springcloud.redisson.configure;
 
 import com.dys.springcloud.redisson.consts.RedissonConsts;
 import com.dys.springcloud.redisson.propeties.RedisProperties;

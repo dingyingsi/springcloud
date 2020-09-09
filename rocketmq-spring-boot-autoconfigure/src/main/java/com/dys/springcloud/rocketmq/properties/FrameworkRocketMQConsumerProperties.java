@@ -1,29 +1,23 @@
-package com.dys.springcloud.properties;
+package com.dys.springcloud.rocketmq.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "framework.rocketmq.consumer")
 public class FrameworkRocketMQConsumerProperties {
-    private boolean enable = false;
-
+    private Boolean enabled = false;
     private String namesrvAddr;
-
     private String groupName;
-
-    private int consumeThreadMin;
-
-    private int consumeThreadMax;
-
+    private Integer consumeThreadMin;
+    private Integer consumeThreadMax;
     private String topicAndTags;
+    private Integer consumeMessageBatchMaxSize;
 
-    private int consumeMessageBatchMaxSize;
-
-    public boolean isEnable() {
-        return enable;
+    public Boolean getEnabled() {
+        return enabled;
     }
 
-    public void setEnable(boolean enable) {
-        this.enable = enable;
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
     public String getNamesrvAddr() {

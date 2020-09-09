@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.dys.springcloud.redisson.config.RedissonAutoConfigure
+com.dys.springcloud.redisson.configure.RedissonAutoConfigure

@@ -5,5 +5,4 @@ dependencies {
     api 'org.springframework.boot:spring-boot-autoconfigure:2.3.1.RELEASE'
     api group: 'org.apache.commons', name: 'commons-lang3', version: '3.10'
     api group:  'org.springframework.boot', name: 'spring-boot-configuration-processor', version: '2.3.1.RELEASE'
-
 }

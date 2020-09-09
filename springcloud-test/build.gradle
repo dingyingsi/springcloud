@@ -14,13 +14,10 @@ dependencies {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
 
-    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
-    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
-
-    implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix'
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
 
     api ('com.dys:rocketmq-spring-boot-starter:0.0.1-SNAPSHOT')
+
+
 
 
 }
