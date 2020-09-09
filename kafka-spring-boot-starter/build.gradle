@@ -1,4 +1,4 @@
 
 dependencies {
-    implementation group: 'com.dys', name: 'kafka-spring-boot-autoconfigure', version: '0.0.1-SNAPSHOT'
+    api project(':kafka-spring-boot-autoconfigure')
 }

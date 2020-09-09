@@ -1,4 +1,4 @@
 
 dependencies {
-    implementation 'com.dys:user-action-spring-boot-autoconfigure:0.0.1-SNAPSHOT'
+    api project(':user-action-spring-boot-autoconfigure')
 }
