@@ -20,8 +20,9 @@ public class FrameworkRocketMQProducerConfigure {
 
     @Bean
     public DefaultMQProducer frameworkRocketMQProducer() throws MQClientException {
-        DefaultMQProducer producer = new DefaultMQProducer(this.frameworkRocketMQProducerProperties.getGroupName());
+        DefaultMQProducer producer = new DefaultMQProducer();
         producer.setNamesrvAddr(this.frameworkRocketMQProducerProperties.getNamesrvAddr());
+        producer.setProducerGroup(this.frameworkRocketMQProducerProperties.getProducerGroup());
         producer.setInstanceName("frameworkRocketMQProducer");
         producer.setMaxMessageSize(this.frameworkRocketMQProducerProperties.getMaxMessageSize());
         producer.setSendMsgTimeout(this.frameworkRocketMQProducerProperties.getSendMsgTimeout());

@@ -4,13 +4,33 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "framework.rocketmq.consumer")
 public class FrameworkRocketMQConsumerProperties {
-    private Boolean enabled = false;
+    private Boolean enabled;
     private String namesrvAddr;
-    private String groupName;
+    private String consumerGroup;
     private Integer consumeThreadMin;
     private Integer consumeThreadMax;
     private String topicAndTags;
     private Integer consumeMessageBatchMaxSize;
+
+    public String getConsumerGroup() {
+        return consumerGroup;
+    }
+
+    public void setConsumerGroup(String consumerGroup) {
+        this.consumerGroup = consumerGroup;
+    }
+
+    public void setConsumeThreadMin(Integer consumeThreadMin) {
+        this.consumeThreadMin = consumeThreadMin;
+    }
+
+    public void setConsumeThreadMax(Integer consumeThreadMax) {
+        this.consumeThreadMax = consumeThreadMax;
+    }
+
+    public void setConsumeMessageBatchMaxSize(Integer consumeMessageBatchMaxSize) {
+        this.consumeMessageBatchMaxSize = consumeMessageBatchMaxSize;
+    }
 
     public Boolean getEnabled() {
         return enabled;
@@ -26,14 +46,6 @@ public class FrameworkRocketMQConsumerProperties {
 
     public void setNamesrvAddr(String namesrvAddr) {
         this.namesrvAddr = namesrvAddr;
-    }
-
-    public String getGroupName() {
-        return groupName;
-    }
-
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
     }
 
     public int getConsumeThreadMin() {

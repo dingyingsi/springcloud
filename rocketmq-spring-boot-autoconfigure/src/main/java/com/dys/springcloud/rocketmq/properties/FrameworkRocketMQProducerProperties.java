@@ -4,9 +4,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "framework.rocketmq.producer")
 public class FrameworkRocketMQProducerProperties {
-    private Boolean enabled = false;
+    private Boolean enabled;
     private String namesrvAddr;
-    private String groupName;
+    private String producerGroup;
     private Integer maxMessageSize;
     private Integer sendMsgTimeout;
     private Integer retryTimesWhenSendFailed;
@@ -27,12 +27,12 @@ public class FrameworkRocketMQProducerProperties {
         this.namesrvAddr = namesrvAddr;
     }
 
-    public String getGroupName() {
-        return groupName;
+    public String getProducerGroup() {
+        return producerGroup;
     }
 
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
+    public void setProducerGroup(String producerGroup) {
+        this.producerGroup = producerGroup;
     }
 
     public Integer getMaxMessageSize() {
