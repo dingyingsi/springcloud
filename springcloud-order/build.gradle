@@ -24,5 +24,6 @@ dependencies {
 
     // implementation 'com.dys:springcloud-product-api:0.0.1-SNAPSHOT'
     // implementation 'com.dys:springcloud-comment-api:0.0.1-SNAPSHOT'
-    implementation 'com.dys:springcloud-order-api:0.0.1-SNAPSHOT'
+    // implementation 'com.dys:springcloud-order-api:0.0.1-SNAPSHOT'
+    implementation project(':springcloud-order-api')
 }

@@ -1,6 +1,6 @@
 package com.dys.springcloud.listener;
 
-import org.apache.commons.collections.CollectionUtils;
+import com.liubike.framework.rocketmq.annotation.FrameworkRocketMQMessageListener;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
 import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
@@ -12,27 +12,20 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
+@FrameworkRocketMQMessageListener
 public class MQConsumeMsgListener implements MessageListenerConcurrently {
 
     private static final Logger logger = LoggerFactory.getLogger(MQConsumeMsgListener.class);
 
     @Override
     public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> msgs, ConsumeConcurrentlyContext context) {
-        if(CollectionUtils.isEmpty(msgs)){
-            return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
-        }
-        MessageExt messageExt = msgs.get(0);
+        msgs.stream().forEach(messageExt -> {
 
-        if(messageExt.getTopic().equals("dys_topic")){
-            if(messageExt.getTags().equals("*")){
-                int reconsume = messageExt.getReconsumeTimes();
-                // 重试3次
-                if(reconsume ==3){
-                    return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
-                }
-                System.out.println(new String(messageExt.getBody()));
-            }
-        }
-        return ConsumeConcurrentlyStatus.RECONSUME_LATER;
+            System.out.println(new String(messageExt.getBody()) + ", " + messageExt.getReconsumeTimes());
+
+        });
+
+
+        return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
     }
 }

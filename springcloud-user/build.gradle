@@ -18,14 +18,13 @@ dependencies {
     implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
 
+    //implementation 'com.dys:springcloud-product-api:0.0.1-SNAPSHOT'
+    //implementation 'com.dys:springcloud-comment-api:0.0.1-SNAPSHOT'
+    //implementation 'com.dys:springcloud-order-api:0.0.1-SNAPSHOT'
 
-    //implementation project(':springcloud-product-api')
-
-    implementation 'com.dys:springcloud-product-api:0.0.1-SNAPSHOT'
-    implementation 'com.dys:springcloud-comment-api:0.0.1-SNAPSHOT'
-    implementation 'com.dys:springcloud-order-api:0.0.1-SNAPSHOT'
-
-
+    implementation project(':springcloud-product-api')
+    implementation project(':springcloud-comment-api')
+    implementation project(':springcloud-order-api')
 
 
 }
