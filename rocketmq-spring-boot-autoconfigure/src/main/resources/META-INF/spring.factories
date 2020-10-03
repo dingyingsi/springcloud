@@ -1,3 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.dys.springcloud.rocketmq.configure.FrameworkRocketMQProducerConfigure,\
-com.dys.springcloud.rocketmq.configure.FrameworkRocketMQConsumerConfigure

@@ -1,2 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.dys.springcloud.user.action.configure.UserActionLogAOPConfigure

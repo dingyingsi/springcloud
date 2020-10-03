@@ -1,3 +1,0 @@
-dependencies {
-    api project(':datasource-spring-boot-autoconfigure')
-}

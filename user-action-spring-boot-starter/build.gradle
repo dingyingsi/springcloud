@@ -1,4 +1,0 @@
-
-dependencies {
-    api project(':user-action-spring-boot-autoconfigure')
-}
