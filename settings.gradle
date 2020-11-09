@@ -34,11 +34,11 @@ include 'springcloud-order-api'
 include 'springcloud-gateway'
 include 'springcloud-test'
 
-include 'springsecurity'
 include 'springcloud-hystrix-dashboard'
 include 'springcloud-turbine'
 include 'springcloud-bus'
 include 'springcloud-data'
 
+include 'springsecurity'
 include 'springcloud-test'
 
