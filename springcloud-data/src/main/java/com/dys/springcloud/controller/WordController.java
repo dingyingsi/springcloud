@@ -30,6 +30,13 @@ public class WordController {
         return InternalResourceViewResolver.REDIRECT_URL_PREFIX + "list";
     }
 
+    @RequestMapping(value = {"/delete"})
+    public String delete(Word word) {
+
+        wordService.deleteById(word.getId());
+        return InternalResourceViewResolver.REDIRECT_URL_PREFIX + "list";
+    }
+
     @RequestMapping(value = {"/edit"}, method = RequestMethod.GET)
     public String edit(Word word, Model model) {
         word = wordService.findById(word.getId());

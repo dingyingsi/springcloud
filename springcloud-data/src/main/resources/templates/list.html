@@ -28,7 +28,8 @@
         <td th:text="${word.wordMeaning}"></td>
         <td th:text="${word.wordExample}"></td>
         <td>
-            <a th:href="@{/word/edit(id=${word.id})}">编辑</a> &nbsp;&nbsp;
+            <a th:href="@{/word/edit(id=${word.id})}">编辑</a>
+            <a th:href="@{/word/delete(id=${word.id})}">删除</a>
         </td>
     </tr>
     </tbody>

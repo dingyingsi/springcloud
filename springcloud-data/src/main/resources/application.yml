@@ -20,3 +20,20 @@ spring:
 server:
   servlet:
     context-path: /word
+framework:
+  redisson:
+    mode: cluster
+    netty-threads: 16
+    cluster:
+      connect-timeout: 5000
+      idle-connection-timeout: 5000
+      address:
+      scan-interval: 1000
+      read-mode: MASTER_SLAVE
+      retry-attempts: 3
+      failed-slave-check-interval: 3
+      master-connection-pool-size: 64
+      master-connection-minimum-idle-size: 12
+      slave-connection-pool-size: 64
+      slave-connection-minimum-idle-size: 12
+      retry-interval: 1500

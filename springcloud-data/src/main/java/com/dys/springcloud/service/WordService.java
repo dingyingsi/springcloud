@@ -12,4 +12,6 @@ public interface WordService {
     List<Word> list();
 
     Word findById(Long id);
+
+    void deleteById(Long id);
 }

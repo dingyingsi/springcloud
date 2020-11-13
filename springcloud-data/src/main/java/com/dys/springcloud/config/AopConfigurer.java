@@ -9,7 +9,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @Configuration
 @ComponentScan(basePackages = "com.dys.springcloud")
 @EnableAspectJAutoProxy
-public class AopConfiguration {
+public class AopConfigurer {
 
     @Bean
     public LogAspects logAspects() {
