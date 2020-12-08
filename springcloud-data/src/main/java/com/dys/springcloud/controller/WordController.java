@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import javax.annotation.Resource;
@@ -57,5 +59,12 @@ public class WordController {
         List<Word> words = this.wordService.list();
         model.addAttribute("words", words);
         return "list";
+    }
+
+    @RequestMapping(value = {"/findByUserId"})
+    @ResponseBody
+    public List<Word> findByUserId(@RequestParam(name = "userId") Long userId) {
+        List<Word> words = this.wordService.findByUserId(userId);
+        return words;
     }
 }

@@ -27,7 +27,7 @@ framework:
     cluster:
       connect-timeout: 5000
       idle-connection-timeout: 5000
-      address:
+      address: 10.2.55.11:7001,10.2.55.11:7002,10.2.55.11:7003,10.2.55.11:7004,10.2.55.11:7005,10.2.55.11:7006
       scan-interval: 1000
       read-mode: MASTER_SLAVE
       retry-attempts: 3
